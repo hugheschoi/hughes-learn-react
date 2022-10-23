@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import { TagInput } from './demos/hooks/tagInput'
 import './App.css'
 import { ShoppingList } from './demos/classComponents/shoppingList'
-
+import { Context1, Context2 } from './demos/classComponents/context'
+import { SignUpDialog } from './demos/classComponents/compose'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -31,6 +32,8 @@ function App() {
       </p>
       <TagInput tags={['Nodejs', 'MongoDB']} />
       <ShoppingList name='My Shopping' />
+      <Context1 /><Context2 />
+      <SignUpDialog />
     </div>
   )
 }
