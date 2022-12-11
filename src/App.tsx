@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import { TagInput } from './demos/hooks/tagInput'
+import { Modal } from './demos/hooks/modalDialog'
 import './App.css'
 import { ShoppingList } from './demos/classComponents/shoppingList'
 import { Context1, Context2 } from './demos/classComponents/context'
 import { SignUpDialog } from './demos/classComponents/compose'
+
 function App() {
   const [count, setCount] = useState(0)
+  const [isModal, setModal] = useState(false);
 
   return (
     <div className="App">
@@ -30,10 +33,18 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <TagInput tags={['Nodejs', 'MongoDB']} />
+      <button onClick={() => setModal(true)}>Click Here</button>
+      <Modal
+        isVisible={isModal}
+        title="Model Title"
+        content={<p>Add your content here</p>}
+        footer={<button>Cancel</button>}
+        onClose={() => setModal(false)}
+      />
+      {/* <TagInput tags={['Nodejs', 'MongoDB']} />
       <ShoppingList name='My Shopping' />
       <Context1 /><Context2 />
-      <SignUpDialog />
+      <SignUpDialog /> */}
     </div>
   )
 }
